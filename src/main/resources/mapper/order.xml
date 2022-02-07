@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.heypli.ordersvc.mapper.OrderServiceMapper">
+
+    <insert id="insertOrder" parameterType="OrderInfo" useGeneratedKeys="true" keyProperty="orderId">
+        INSERT INTO OrderInfo
+            (userId, orderDate)
+                VALUES(#{userId}, current_timestamp());
+    </insert>
+
+    <insert id="insertOrderDetail" parameterType="java.util.List">
+        INSERT INTO orderdetailinfo
+        (orderId, prodId, rgstDate)
+            VALUE
+        <foreach collection="list" item="item" separator=",">
+            (#{item.orderId}, #{item.prodId}, current_timestamp())
+        </foreach>
+
+    </insert>
+</mapper>

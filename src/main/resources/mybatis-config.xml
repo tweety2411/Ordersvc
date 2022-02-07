@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!-- A_Column > aColumn으로 자동 매핑 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 데이터베이스 응답 시간 타임아웃 -->
+        <setting name="defaultStatementTimeout" value="60"/>
+        <!-- 파라미터에 null이 있으면 에러 처리 -->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <!-- 결과가 Map타입일 경우 Null인 컬럼값을 그대로 Null 처리 -->
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+    <typeAliases>
+        <package name="com.heypli.ordersvc.domain" />
+    </typeAliases>
+</configuration>
