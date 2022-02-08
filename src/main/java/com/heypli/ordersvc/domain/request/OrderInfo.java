@@ -13,6 +13,7 @@ import java.util.List;
 @ToString
 public class OrderInfo {
     private Integer      orderId;
+    @NotNull
     private String   userId;
     private Date     orderDate;
 

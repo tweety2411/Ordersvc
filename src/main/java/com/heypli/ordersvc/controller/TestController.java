@@ -1,24 +1,14 @@
 package com.heypli.ordersvc.controller;
 
-import io.netty.channel.ChannelOption;
-import io.netty.handler.timeout.ReadTimeoutHandler;
-import io.netty.handler.timeout.WriteTimeoutHandler;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-import reactor.netty.http.client.HttpClient;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,7 +16,7 @@ public class TestController {
 
     private final RestTemplate restTemplate;
 
-    @RequestMapping("/webclient")
+   /* @RequestMapping("/webclient")
     public void test() {
         HttpClient httpClient = HttpClient.create()
                 .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
@@ -42,7 +32,7 @@ public class TestController {
         Mono<String> result = client.get().retrieve().bodyToMono(String.class);
         String r = result.block();
         System.out.println("###  r " + r);
-    }
+    }*/
 
     @RequestMapping("/restTemplate")
     public ResponseEntity<String> restTemplate() {

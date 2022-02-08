@@ -58,7 +58,6 @@ public class OrderServiceImpl implements OrderService {
         headers.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
         Product prod = new Product(prodId);
         String jsonStr = new Gson().toJson(prod);
-        HttpEntity httpEntity = new HttpEntity(jsonStr, headers);
         String url = "http://localhost:8080/prod/getProdInfo";
 
         ResponseEntity<ProductInfoResponse> response = restTemplate.exchange(url, HttpMethod.POST, new HttpEntity<>(jsonStr, headers), ProductInfoResponse.class);

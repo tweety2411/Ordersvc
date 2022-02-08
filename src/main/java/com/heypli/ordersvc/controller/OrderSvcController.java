@@ -22,8 +22,10 @@ public class OrderSvcController {
     private final OrderService orderService;
 
     @PostMapping("/createOrder")
-    public ResponseEntity<CommonResponse> createOrder(@Valid @RequestBody OrderInfo orderInfo) throws Exception {
+    public ResponseEntity<CommonResponse> createOrder(@RequestBody OrderInfo orderInfo) throws Exception {
         CommonResponse response = orderService.createOrder(orderInfo);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+
 }
